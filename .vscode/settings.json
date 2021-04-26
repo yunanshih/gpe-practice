@@ -16,7 +16,8 @@
         "random": "cpp",
         "deque": "cpp",
         "string": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "istream": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "python.pythonPath": "D:\\python\\python.exe"

@@ -1,21 +1,20 @@
-
 #include <iostream>
- 
+
 using namespace std;
- 
+
 int main() {
-	int n, m, turnoff;
-	while (cin >> n && n) {
-		for (int m = 1 ; m < n; m++) {
-			turnoff = 0;
-			for (int i = 1; i < n; i++) {
+    int N;
+    while(cin >> N && N != 0) {
+        for(int m=1; m < N ; m++) {
+            int turnoff = 0;
+            for(int i=1; i < N ; i++) {
                 turnoff = (turnoff + m) % i;
             }
-            if (turnoff == 11) {
+            if(turnoff == 11) {
                 cout << m << endl;
                 break;
             }
-		}
-	}
-	return 0;
+        }
+    }
+    return 0;
 }

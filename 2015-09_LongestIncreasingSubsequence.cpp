@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
 // for (i = 1 to n) begin
@@ -16,26 +15,22 @@ int main() {
     while (cin >> n) {
         int array[n];
         int LIS[n];
-        for(int i=0; i<n; i++) {
+        for(int i=1; i<=n; i++) {
             cin >> array[i];
-            LIS[i] = 1;
         }
-        int count = 1;
-        for(int i=1; i<n; i++) {
-            for(int j=i-1; j>=0; j--) {
-                if (array[i] > array[j]) {
-                    if(LIS[i] == LIS[j]) {
-                        LIS[i]++;
-                    } else if (LIS[i] < LIS[j]) {
-                        LIS[i] += LIS[j];
-                    }
-                    if (LIS[i] > count){
-                        count = LIS[i];
-                    }
+        for(int i=1; i<=n; i++) {
+            LIS[i] = 1;
+            for(int j=i-1; j>=1; j--) {
+                if(LIS[j]+1 > LIS[i] && array[i] > array[j]) {
+                    LIS[i] = LIS[j]+1;
                 }
             }
         }
-        cout << count << endl;
+        int length = 0;
+        for(int i=1; i<=n; i++) {
+            length = max(length, LIS[i]);
+        }
+        cout << length << endl;
     }
     return 0;
 }
